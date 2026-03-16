@@ -1669,10 +1669,10 @@
                 console.log('Supabase响应:', { data, error });
                 
                 if (error) {
-                    alert('预订失败: ' + error.message);
-                    console.error('预订失败:', error);
-                    return;
-                }
+                     document.getElementById('booking').innerHTML = '<div style="color:red;padding:20px;">预订失败: ' + error.message + '</div><div style="padding:20px;"><a href="#booking">返回</a></div>';
+                     console.error('预订失败:', error);
+                     return;
+                 }
                 
                 alert('感谢您的预订！我们的管家将尽快与您联系确认。');
                 form.reset();
