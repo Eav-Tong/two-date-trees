@@ -1659,17 +1659,25 @@
                 status: 'pending'
             };
 
+            console.log('提交预订数据:', bookingData);
+
             try {
                 const { data, error } = await supabase
                     .from('bookings')
                     .insert([bookingData]);
 
-                if (error) throw error;
+                console.log('Supabase响应:', { data, error });
+                
+                if (error) {
+                    alert('预订失败: ' + error.message);
+                    console.error('预订失败:', error);
+                    return;
+                }
                 
                 alert('感谢您的预订！我们的管家将尽快与您联系确认。');
                 form.reset();
             } catch (err) {
-                console.error('预订失败:', err);
+                console.error('预订异常:', err);
                 alert('预订提交失败，请稍后重试或电话联系我们。');
             }
         }
