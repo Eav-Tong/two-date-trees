@@ -1550,10 +1550,7 @@
         const SUPABASE_URL = 'https://nsfurygtoxzdkrfnwtun.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_Tk0BSfIb_xEHg3aQN3y6vg_8Pf6bJym';
         
-        const supabase = window.supabase.createClient(
-            import.meta?.env?.VITE_SUPABASE_URL || SUPABASE_URL,
-            import.meta?.env?.VITE_SUPABASE_KEY || SUPABASE_KEY
-        );
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         // Navigation scroll effect
         window.addEventListener('scroll', function() {
