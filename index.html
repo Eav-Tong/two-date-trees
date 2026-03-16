@@ -1550,7 +1550,7 @@
         const SUPABASE_URL = 'https://nsfurygtoxzdkrfnwtun.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_Tk0BSfIb_xEHg3aQN3y6vg_8Pf6bJym';
         
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         // Navigation scroll effect
         window.addEventListener('scroll', function() {
@@ -1662,7 +1662,7 @@
             console.log('提交预订数据:', bookingData);
 
             try {
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('bookings')
                     .insert([bookingData]);
 
